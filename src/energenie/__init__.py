@@ -81,7 +81,8 @@ def loop(receive_time=1):
                 registry.fsk_router.incoming_message(address, msg)
                 handled = True
             except OpenThings.OpenThingsException:
-                print("Can't decode payload:%s" % payload)
+                pass
+                # print("Can't decode payload:%s" % payload)
 
         now = time.time()
         if now > timeout: break

@@ -201,7 +201,7 @@ class Router():
             ci.incoming_message(message)
 
         else: # address has no route
-            print("No route to an object, for device:%s" % str(address))
+            ##print("No route to an object, for device:%s" % str(address))
             #TODO: Could consult registry and squash if registry knows it
             self.handle_unknown(address, message)
 
@@ -216,9 +216,9 @@ class Router():
     def handle_unknown(self, address, message):
         if self.unknown_cb != None:
             self.unknown_cb(address, message)
-        else:
+##        else:
             # Default action is just a debug message, and drop the message
-            print("Unknown address: %s" % str(address))
+            ##print("Unknown address: %s" % str(address))
 
 
 #---- DISCOVERY AGENT ---------------------------------------------------------
@@ -230,7 +230,7 @@ class Discovery():
     def __init__(self, registry, router):
         self.registry = registry
         self.router   = router
-        router.when_unknown(self.unknown_device)
+        # router.when_unknown(self.unknown_device)
 
     def unknown_device(self, address, message):
         print("message from unknown device:%s" % str(address))
